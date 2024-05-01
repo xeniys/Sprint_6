@@ -12,7 +12,7 @@ class MainPage(BasePage):
     @allure.step('Проскроллить страницу к блоку с вопросами')
     def scroll_to_accordion_items(self):
         accordion_items = self.find_element_located(MainPageLocators.ACCORDION_ITEMS)
-        self.driver.execute_script("arguments[0].scrollIntoView();", accordion_items)
+        self.scroll_elements(accordion_items)
 
     @allure.step('Найти вопрос')
     def find_question(self, question):
@@ -32,7 +32,7 @@ class MainPage(BasePage):
     @allure.step('Проскроллить страницу вниз')
     def scroll_to_down_order_button(self):
         down_order_button = self.find_element_located(MainPageLocators.DOWN_ORDER_BUTTON)
-        self.driver.execute_script("arguments[0].scrollIntoView();", down_order_button)
+        self.scroll_elements(down_order_button)
 
     @allure.step('Нажать на кнопку "Заказать"')
     def click_on_down_order_button(self):
@@ -41,14 +41,3 @@ class MainPage(BasePage):
     @allure.step('Нажать на кнопку лого Яндекса')
     def click_on_yandex_logo(self):
         return self.find_element_clickable(MainPageLocators.YANDEX_LOGO)
-
-    @allure.step('Открыть вкладку со страницой редиректа')
-    def switch_to_window(self):
-        return self.driver.switch_to.window(self.driver.window_handles[1])
-
-
-
-
-
-
-

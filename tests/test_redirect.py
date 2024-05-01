@@ -18,11 +18,11 @@ class TestRedirect:
         dzen = DzenPage(driver)
         dzen.loading_dzen_page()
 
-        assert Urls.DZEN_URL in driver.current_url
+        assert Urls.DZEN_URL in dzen.get_current_url()
 
     @allure.title('Проверка редиректа на главную страницу при нажатии на лого самоката в хедере')
     @allure.description('На странице ищем  лого самоката и проверяем переход на главную страницу')
-    def test_redidect_to_main_from_samokat_logo(self, driver):
+    def test_redirect_to_main_from_samokat_logo(self, driver):
         page = OrderPage(driver)
         page.open_page(Urls.ORDER_URL)
         page.loading_order_page()
@@ -30,4 +30,4 @@ class TestRedirect:
         main = MainPage(driver)
         main.loading_main_page()
 
-        assert Urls.BASE_URL == driver.current_url
+        assert Urls.BASE_URL == main.get_current_url()

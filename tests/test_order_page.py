@@ -1,7 +1,5 @@
 import allure
 import pytest
-
-import locators.order_page_locators
 from pages.order_page import OrderPage
 from pages.main_page import MainPage
 from constants import Urls
@@ -19,7 +17,7 @@ class TestOrderPage:
         order_page = OrderPage(driver)
         order_page.loading_order_page()
 
-        assert driver.current_url == Urls.ORDER_URL
+        assert order_page.get_current_url() == Urls.ORDER_URL
 
     @allure.title('Проверка редиректа на страницу заказа при нажатии на кнопку "Заказать" на главной странице')
     @allure.description('На странице ищем кнопку "Заказать" в теле станицы и проверяем переход к станице с формой '
@@ -33,7 +31,7 @@ class TestOrderPage:
         order_page = OrderPage(driver)
         order_page.loading_order_page()
 
-        assert driver.current_url == Urls.ORDER_URL
+        assert order_page.get_current_url() == Urls.ORDER_URL
 
     @allure.title('Проверка успешного оформления заказа')
     @allure.description('Проверяем успешное создание заказа при заполнении всех полей в форме заказа')

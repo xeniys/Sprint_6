@@ -1,5 +1,4 @@
 import allure
-
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators
 
@@ -29,7 +28,7 @@ class OrderPage(BasePage):
     @allure.step('Просколлить список метро до нужной станции')
     def scroll_to_subway_station(self):
         subway_station = self.find_element_located(OrderPageLocators.SUBWAY_FIELD_SELECT)
-        self.driver.execute_script("arguments[0].scrollIntoView();", subway_station)
+        self.scroll_elements(subway_station)
 
     def wait_for_subway_station(self):
         return self.find_element_located(OrderPageLocators.SUBWAY_STATION_LST)
@@ -48,7 +47,6 @@ class OrderPage(BasePage):
 
     def wait_order_about_loading(self):
         return self.find_element_located(OrderPageLocators.ABOUT_RENT_HEADER)
-
 
     def click_on_delivery_time_field(self):
         return self.find_element_clickable(OrderPageLocators.DELIVERY_TIME)
@@ -99,12 +97,3 @@ class OrderPage(BasePage):
     @allure.step('Нажать на лого Самоката')
     def click_on_samokat_logo(self):
         return self.find_element_clickable(OrderPageLocators.SAMOKAT_LOGO)
-
-    @allure.step('Открыть вкладку со страницой редиректа"')
-    def switch_to_window(self):
-        return self.driver.switch_to.window(self.driver.window_handles[1])
-
-
-
-
-

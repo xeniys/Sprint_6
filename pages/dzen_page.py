@@ -1,5 +1,4 @@
 import allure
-
 from locators.dzen_page_locators import DzenPageLocators
 from pages.base_page import BasePage
 

@@ -18,7 +18,7 @@ class OrderPageLocators:
     DELIVERY_TIME = (By.XPATH, ".//input[@placeholder= '* Когда привезти самокат']")
     CALENDAR = (By.CLASS_NAME, 'react-datepicker__month')
     DATE = (By.XPATH,
-                 ".//div[@class = 'react-datepicker__week']/div[@class = 'react-datepicker__day react-datepicker__day--005']")
+                 ".//div[@class = 'react-datepicker__week']/div[@class = 'react-datepicker__day react-datepicker__day--030']")
 
     TIME_FIELD = (By.CLASS_NAME, 'Dropdown-control')
     TIME_DROPDOWN = (By.CLASS_NAME, 'Dropdown-menu')
